@@ -14,7 +14,7 @@ const increment = (column: AnyColumn, value = 1) => {
 	return sql`${column} + ${value}`;
 };
 
-app.post('/getLevel/:id', async (ctx) => {
+app.post('/shinies/getLevel/:id', async (ctx) => {
 	const { id } = ctx.req.param()
 	let idInt
 
@@ -41,7 +41,7 @@ app.post('/getLevel/:id', async (ctx) => {
 	return ctx.json(level)
 })
 
-app.post('/getUser/:id', async (ctx) => {
+app.post('/shinies/getUser/:id', async (ctx) => {
 	const { id } = ctx.req.param()
 	let idInt
 
@@ -68,7 +68,7 @@ app.post('/getUser/:id', async (ctx) => {
 	return ctx.json(user)
 })
 
-app.post('/postShiny', async (ctx) => {
+app.post('/shinies/postShiny', async (ctx) => {
 	const data = await ctx.req.formData();
 
 	const sessionID = data.get("sessionID") as string

@@ -1,5 +1,5 @@
 {
-  "id": "ef92dd85-0a0d-4d6c-a6b4-af429a128adf",
+  "id": "7eb735c1-8e21-4e1d-94b6-fb031be95c38",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -26,8 +26,8 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "public.levels_to_users": {
-      "name": "levels_to_users",
+    "public.shinies": {
+      "name": "shinies",
       "schema": "",
       "columns": {
         "user_id": {
@@ -41,13 +41,20 @@
           "type": "integer",
           "primaryKey": false,
           "notNull": true
+        },
+        "count": {
+          "name": "count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 1
         }
       },
       "indexes": {},
       "foreignKeys": {
-        "levels_to_users_user_id_users_id_fk": {
-          "name": "levels_to_users_user_id_users_id_fk",
-          "tableFrom": "levels_to_users",
+        "shinies_user_id_users_id_fk": {
+          "name": "shinies_user_id_users_id_fk",
+          "tableFrom": "shinies",
           "tableTo": "users",
           "columnsFrom": [
             "user_id"
@@ -55,12 +62,12 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
+          "onDelete": "cascade",
           "onUpdate": "no action"
         },
-        "levels_to_users_level_id_levels_id_fk": {
-          "name": "levels_to_users_level_id_levels_id_fk",
-          "tableFrom": "levels_to_users",
+        "shinies_level_id_levels_id_fk": {
+          "name": "shinies_level_id_levels_id_fk",
+          "tableFrom": "shinies",
           "tableTo": "levels",
           "columnsFrom": [
             "level_id"
@@ -73,8 +80,8 @@
         }
       },
       "compositePrimaryKeys": {
-        "levels_to_users_user_id_level_id_pk": {
-          "name": "levels_to_users_user_id_level_id_pk",
+        "shinies_user_id_level_id_pk": {
+          "name": "shinies_user_id_level_id_pk",
           "columns": [
             "user_id",
             "level_id"
